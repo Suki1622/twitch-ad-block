@@ -358,15 +358,15 @@ twitch-videoad.js text/javascript
                                                     }
                                                 }
                                             }
-                                            if (highResBestUrl != null && streamInfo.Encodings != null) {
+                                            if (lowResBestUrl != null && streamInfo.Encodings != null) {
                                                 var normalEncodingsM3u8 = streamInfo.Encodings;
                                                 var normalLines = normalEncodingsM3u8.replace('\r', '').split('\n');
                                                 for (var j = 0; j < normalLines.length - 1; j++) {
                                                     if (normalLines[j].startsWith('#EXT-X-STREAM-INF')) {
                                                         var res = parseAttributes(normalLines[j])['RESOLUTION'];
                                                         if (res) {
-                                                            highResBestUrl += ' ';// The stream doesn't load unless each url line is unique
-                                                            normalLines[j + 1] = highResBestUrl;
+                                                            lowResBestUrl += ' ';// The stream doesn't load unless each url line is unique
+                                                            normalLines[j + 1] = lowResBestUrl;
                                                         }
                                                     }
                                                 }
